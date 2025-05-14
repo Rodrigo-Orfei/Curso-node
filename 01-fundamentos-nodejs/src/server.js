@@ -1,7 +1,11 @@
 import http from 'node:http';
 
 const server = http.createServer((req, res) => {
-    return res.end("Hello World")
+    const {method, url} = req;
+
+    
+
+    return res.end("Hello World");
 })
 
 server.listen(8080);
