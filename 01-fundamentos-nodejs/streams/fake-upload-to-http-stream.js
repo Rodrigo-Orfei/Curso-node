@@ -5,7 +5,7 @@ class OneToHundredStream extends Readable {
     _read() {
         const i = this.index++
 
-        if (i > 100) {
+        if (i > 5) {
             this.push(null)
         } else {
             var buf = Buffer.from(String(i)) // Convertendo para Buffer
@@ -26,4 +26,8 @@ fetch('http://localhost:8081', {
     method: 'POST',
     body: stream,
     duplex: 'half'
+}).then(response => {
+    return response.text()
+}).then (data => {
+    console.log(data)
 })
